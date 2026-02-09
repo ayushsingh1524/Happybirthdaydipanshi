@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Dipanshi ❤️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Outfit', sans-serif; }
+        .font-script { font-family: 'Great Vibes', cursive; }
+        .font-serif-display { font-family: 'Playfair Display', serif; }
+        
+        /* Premium Background */
+        .romantic-bg {
+            background-color: #fff0f5;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(255, 228, 230, 0.8), transparent 25%), 
+                radial-gradient(circle at 85% 30%, rgba(253, 164, 175, 0.2), transparent 25%);
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(244, 63, 94, 0.1);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 
+                0 4px 20px -2px rgba(255, 182, 193, 0.2), 
+                inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Entrance Animation */
+        .curtain {
+            transition: transform 1.5s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .curtain-up { transform: translateY(-100%); }
+        
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float { animation: float 5s ease-in-out infinite; }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.1); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.1); }
+            70% { transform: scale(1); }
+        }
+        .animate-heartbeat { animation: heartbeat 2.5s infinite; }
+
+        /* Reveal on Scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="romantic-bg text-slate-800 antialiased overflow-x-hidden relative selection:bg-rose-200 selection:text-rose-900">
+
+    <!-- Hidden Audio Player -->
+    <audio id="bg-music" loop style="display: none;"></audio>
+
+    <!-- Music Player UI (Visual Only) -->
+    <div id="music-player-ui" class="fixed top-6 right-6 z-40 animate-float cursor-pointer">
+        <div class="glass px-4 py-2 rounded-full flex items-center gap-3 shadow-lg">
+            <div class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></div>
+            <span class="text-xs font-medium text-slate-500 tracking-wide uppercase">Playing: Our Song</span>
+            <iconify-icon icon="solar:music-note-slider-linear" class="text-rose-500 text-lg"></iconify-icon>
+        </div>
+    </div>
+
+    <!-- 1. ENTRANCE SCREEN -->
+    <div id="entrance-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-rose-50 curtain">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
+        <div class="text-center space-y-8 relative z-10 p-6">
+            <div class="inline-block relative">
+                <div class="absolute inset-0 bg-rose-200 blur-2xl rounded-full opacity-40 animate-pulse"></div>
+                <iconify-icon icon="solar:gift-linear" class="text-8xl text-rose-500 relative z-10 animate-float"></iconify-icon>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-script text-rose-900">
+                A Special Surprise
+            </h1>
+            <p class="text-slate-500 font-light tracking-wide">For the most beautiful girl in the world</p>
+            
+            <button onclick="enterSite()" class="group relative px-8 py-4 bg-white rounded-full shadow-xl shadow-rose-200/50 hover:shadow-rose-300/60 transition-all duration-500 border border-rose-100 overflow-hidden">
+                <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-rose-100 to-pink-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <span class="relative z-10 flex items-center gap-3 text-rose-600 font-medium tracking-widest text-sm uppercase">
+                    Unlock Gift <iconify-icon icon="solar:key-minimalistic-linear" class="text-lg"></iconify-icon>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="relative z-0 pb-20">
+        
+        <!-- Background Elements -->
+        <div class="fixed inset-0 pointer-events-none overflow-hidden">
+            <div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-rose-200/30 rounded-full blur-3xl mix-blend-multiply filter"></div>
+            <div class="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-pink-200/30 rounded-full blur-3xl mix-blend-multiply filter"></div>
+        </div>
+
+        <!-- 2. HERO SECTION -->
+        <section class="min-h-screen flex flex-col items-center justify-center text-center px-4 relative pt-20">
+            <div class="space-y-4 reveal active">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-rose-200 bg-white/40 backdrop-blur-sm text-rose-500 text-xs font-semibold tracking-widest uppercase shadow-sm">
+                    <iconify-icon icon="solar:calendar-date-bold"></iconify-icon> Special Edition
+                </div>
+                
+                <h1 class="text-7xl md:text-[9rem] font-script text-transparent bg-clip-text bg-gradient-to-br from-rose-400 via-pink-500 to-rose-600 leading-tight py-4 drop-shadow-sm">
+                    Happy Birthday
+                </h1>
+                
+                <div class="relative inline-block mt-4">
+                    <span class="text-5xl md:text-8xl font-serif-display italic text-slate-800 relative z-10 block">
+                        Dipanshi
+                    </span>
+                    <div class="absolute -bottom-2 -right-4 text-4xl animate-float">✨</div>
+                    <svg class="absolute w-full h-3 -bottom-1 left-0 text-rose-300 opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none">
+                        <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="8" fill="none" />
+                    </svg>
+                </div>
+
+                <p class="max-w-lg mx-auto text-lg md:text-xl text-slate-600 font-light leading-relaxed pt-8">
+                    Aaj ka din, meri life ka sabse favourite din hai.<br>
+                    Kyunki aaj tum aayi thi, meri duniya ban ne ke liye.
+                </p>
+            </div>
+
+            <div class="absolute bottom-12 animate-bounce opacity-40 text-rose-400">
+                <iconify-icon icon="solar:mouse-circle-linear" width="32"></iconify-icon>
+            </div>
+        </section>
+
+        <!-- 2.5 TIME-BASED SURPRISE SECTION -->
+        <section class="py-20 px-4 reveal">
+            <div class="max-w-2xl mx-auto glass-card p-8 md:p-12 rounded-[2rem] text-center border-white/60">
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <span id="time-icon" class="text-4xl">☀️</span>
+                    <span class="text-xs font-bold text-rose-400 tracking-[0.2em] uppercase">A Message Just For You</span>
+                </div>
+                
+                <p id="time-message" class="text-2xl md:text-3xl font-script text-slate-700 leading-relaxed">
+                    Good Morning meri sabse pyaari aadat ☀️
+                </p>
+            </div>
+        </section>
+
+        <!-- 3. LIVE COUNTER SECTION (New) -->
+        <section class="py-20 px-4 reveal">
+            <div class="max-w-4xl mx-auto glass rounded-[2.5rem] p-8 md:p-12 text-center border-white/60">
+                <div class="flex items-center justify-center gap-2 text-rose-400 mb-6">
+                    <iconify-icon icon="solar:clock-circle-bold" class="text-xl"></iconify-icon>
+                    <span class="text-xs font-bold tracking-[0.2em] uppercase">Time Since You Stole My Heart</span>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+                    <div class="space-y-2">
+                        <div class="text-4xl md:text-5xl font-serif-display text-slate-800" id="days">00</div>
+                        <div class="text-xs text-slate-500 uppercase tracking-wider">Days</div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="text-4xl md:text-5xl font-serif-display text-slate-800" id="hours">00</div>
+                        <div class="text-xs text-slate-500 uppercase tracking-wider">Hours</div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="text-4xl md:text-5xl font-serif-display text-slate-800" id="minutes">00</div>
+                        <div class="text-xs text-slate-500 uppercase tracking-wider">Minutes</div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="text-4xl md:text-5xl font-serif-display text-slate-800 text-rose-500" id="seconds">00</div>
+                        <div class="text-xs text-slate-500 uppercase tracking-wider">Seconds</div>
+                    </div>
+                </div>
+                <p class="mt-8 text-sm text-slate-400 font-light italic">...and every second was magical.</p>
+            </div>
+        </section>
+
+        <!-- 4. OUR JOURNEY (New) -->
+        <section class="py-20 px-4 max-w-3xl mx-auto space-y-16 reveal">
+            <div class="text-center space-y-2">
+                <h2 class="text-4xl md:text-6xl font-script text-rose-900">Humari Kahani</h2>
+                <p class="text-slate-500 font-light">Chote chote pal, badi badi yaadein</p>
+            </div>
+
+            <div class="relative">
+                <!-- Vertical Line -->
+                <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-rose-300 to-transparent md:-translate-x-1/2"></div>
+
+                <!-- Event 1 -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
+                    <div class="order-2 md:order-1 md:w-[45%] text-left md:text-right space-y-2 pl-12 md:pl-0">
+                        <h3 class="text-xl font-serif-display text-slate-800">Jab Pehli Baar Mile</h3>
+                        <p class="text-sm text-slate-500 font-light leading-relaxed">Woh din mujhe aaj bhi yaad hai. Tumhari smile dekh kar hi mujhe pata chal gaya tha ki tum special ho.</p>
+                    </div>
+                    <div class="absolute left-0 md:left-1/2 w-8 h-8 rounded-full bg-white border-4 border-rose-200 shadow-lg md:-translate-x-1/2 flex items-center justify-center text-rose-500 z-10">
+                        <iconify-icon icon="solar:heart-bold" width="12"></iconify-icon>
+                    </div>
+                    <div class="order-1 md:order-2 md:w-[45%]"></div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
+                    <div class="order-2 md:order-1 md:w-[45%]"></div>
+                    <div class="absolute left-0 md:left-1/2 w-8 h-8 rounded-full bg-white border-4 border-rose-200 shadow-lg md:-translate-x-1/2 flex items-center justify-center text-rose-500 z-10">
+                        <iconify-icon icon="solar:star-bold" width="12"></iconify-icon>
+                    </div>
+                    <div class="order-2 md:order-2 md:w-[45%] space-y-2 pl-12 md:pl-0">
+                        <h3 class="text-xl font-serif-display text-slate-800">Woh Late Night Baatein</h3>
+                        <p class="text-sm text-slate-500 font-light leading-relaxed">Jab ghanto beet jate thay aur hume waqt ka pata hi nahi chalta tha. Sirf tum aur main.</p>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="order-2 md:order-1 md:w-[45%] text-left md:text-right space-y-2 pl-12 md:pl-0">
+                        <h3 class="text-xl font-serif-display text-slate-800">Aur Aaj...</h3>
+                        <p class="text-sm text-slate-500 font-light leading-relaxed">Aaj hum yaha hai, aur mera pyaar tumhare liye har din aur badhta jaa raha hai.</p>
+                    </div>
+                    <div class="absolute left-0 md:left-1/2 w-8 h-8 rounded-full bg-rose-500 border-4 border-rose-200 shadow-lg md:-translate-x-1/2 flex items-center justify-center text-white z-10">
+                        <iconify-icon icon="solar:crown-bold" width="14"></iconify-icon>
+                    </div>
+                    <div class="order-1 md:order-2 md:w-[45%]"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. POLAROID GALLERY -->
+        <section class="py-20 px-4 reveal">
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">
+                
+                <!-- Photo 1 -->
+                <div class="group relative transform rotate-[-3deg] hover:rotate-0 hover:z-20 transition-all duration-500 ease-out md:top-8">
+                    <div class="bg-white p-3 pb-12 shadow-xl rounded-sm">
+                        <div class="overflow-hidden aspect-[4/5] bg-rose-50">
+                            <img src="Snapchat-2142451649.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Memory">
+                        </div>
+                        <div class="absolute bottom-4 left-0 w-full text-center">
+                            <span class="font-script text-2xl text-slate-600">Pure Joy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 2 (Center) -->
+                <div class="group relative z-10 transform md:scale-110 hover:scale-115 transition-all duration-500 ease-out">
+                    <div class="bg-white p-3 pb-12 shadow-2xl rounded-sm">
+                        <div class="overflow-hidden aspect-[4/5] bg-rose-50 relative">
+                            <div class="absolute inset-0 bg-rose-500/10 z-10 mix-blend-overlay"></div>
+                            <img src="20250415_142812.jpg" class="w-full h-full object-cover" alt="Memory">
+                        </div>
+                        <div class="absolute bottom-4 left-0 w-full text-center flex justify-center items-center gap-2">
+                            <iconify-icon icon="solar:heart-bold" class="text-rose-500"></iconify-icon>
+                            <span class="font-script text-2xl text-slate-800">My World</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="group relative transform rotate-[3deg] hover:rotate-0 hover:z-20 transition-all duration-500 ease-out md:top-8">
+                    <div class="bg-white p-3 pb-12 shadow-xl rounded-sm">
+                        <div class="overflow-hidden aspect-[4/5] bg-rose-50">
+                            <img src="Snapchat-602972927.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Memory">
+                        </div>
+                        <div class="absolute bottom-4 left-0 w-full text-center">
+                            <span class="font-script text-2xl text-slate-600">Pretty You</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 6. WHY YOU ARE SPECIAL (Cards) -->
+        <section class="py-20 px-6 reveal">
+            <h2 class="text-center text-4xl font-script text-rose-900 mb-12">Things I Adore About You</h2>
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="glass-card p-8 rounded-3xl text-center space-y-4 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-14 h-14 mx-auto rounded-full bg-rose-100 text-rose-500 flex items-center justify-center text-2xl">
+                        <iconify-icon icon="solar:smile-circle-linear"></iconify-icon>
+                    </div>
+                    <h3 class="font-serif-display text-lg text-slate-800">Tumhari Muskaan</h3>
+                    <p class="text-sm text-slate-500 font-light">Jab tum hasti ho, toh meri saari tension gayab ho jaati hai.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl text-center space-y-4 hover:-translate-y-2 transition-transform duration-300 md:-mt-4">
+                    <div class="w-14 h-14 mx-auto rounded-full bg-pink-100 text-pink-500 flex items-center justify-center text-2xl">
+                        <iconify-icon icon="solar:heart-angle-linear"></iconify-icon>
+                    </div>
+                    <h3 class="font-serif-display text-lg text-slate-800">Tumhara Dil</h3>
+                    <p class="text-sm text-slate-500 font-light">Tum duniya ki sabse caring insaan ho, aur main lucky hoon.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl text-center space-y-4 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-14 h-14 mx-auto rounded-full bg-rose-100 text-rose-500 flex items-center justify-center text-2xl">
+                        <iconify-icon icon="solar:stars-minimalistic-linear"></iconify-icon>
+                    </div>
+                    <h3 class="font-serif-display text-lg text-slate-800">Tumhara Style</h3>
+                    <p class="text-sm text-slate-500 font-light">Chahe kuch bhi pehno, tum humesha princess lagti ho.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 7. THE PROPOSAL (Interactive) -->
+        <section class="py-24 px-4 relative reveal">
+            <div class="max-w-2xl mx-auto relative z-10">
+                <div class="glass p-10 md:p-16 rounded-[3rem] text-center shadow-2xl border-2 border-white/50 relative overflow-hidden">
+                    
+                    <!-- Decorative BG -->
+                    <div class="absolute -top-24 -left-24 w-64 h-64 bg-rose-400/20 rounded-full blur-3xl"></div>
+                    <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-pink-400/20 rounded-full blur-3xl"></div>
+
+                    <div class="mb-8">
+                        <iconify-icon icon="solar:heart-lock-bold" class="text-6xl text-rose-500 drop-shadow-sm animate-heartbeat"></iconify-icon>
+                    </div>
+
+                    <h2 class="text-5xl md:text-7xl font-script text-rose-600 mb-6">
+                        Forever & Always?
+                    </h2>
+                    
+                    <p class="text-lg text-slate-600 font-light mb-12">
+                        Mai apni Bachha se poochna chahta hu,<br>
+                        kya tum hamesha ke liye meri banogi? 💍
+                    </p>
+
+                    <div class="flex flex-col md:flex-row gap-6 justify-center items-center h-24" id="buttons-area">
+                        <button onclick="acceptLove()" class="bg-gradient-to-r from-rose-500 to-pink-600 text-white px-10 py-4 rounded-full font-medium shadow-lg hover:shadow-rose-500/40 hover:scale-105 transition-all flex items-center gap-2 group z-20">
+                            Yes, I will! <iconify-icon icon="solar:heart-bold" class="group-hover:animate-ping"></iconify-icon>
+                        </button>
+                        
+                        <button id="no-btn" onmouseover="dodge(this)" ontouchstart="dodge(this)" class="bg-white text-slate-500 border border-slate-200 px-10 py-4 rounded-full font-medium shadow-sm hover:text-rose-500 transition-colors z-10">
+                            No way
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="fixed bottom-8 left-8 z-40">
+            <iconify-icon icon="solar:heart-bold" class="text-rose-500 text-4xl"></iconify-icon>
+        </footer>
+        <div class="text-center py-8 text-rose-900 text-[10px] font-bold tracking-[0.2em] uppercase">
+            <span>Made by Ayush</span> <span>for Dipaa dadi😘</span>
+        </div>
+    </main>
+
+    <!-- SUCCESS OVERLAY -->
+    <div id="celebration" class="fixed inset-0 z-[60] bg-white/90 backdrop-blur-xl hidden flex-col items-center justify-center text-center p-6">
+        <div class="animate-bounce mb-8">
+            <iconify-icon icon="solar:confetti-minimalistic-bold" class="text-8xl text-rose-500"></iconify-icon>
+        </div>
+        <h2 class="text-6xl md:text-8xl font-script text-rose-600 mb-4">She Said Yes!</h2>
+        <p class="text-2xl text-slate-600 font-serif-display italic">I Love You So Much ❤️</p>
+        <p class="mt-4 text-slate-400 text-sm">Thank you for making me the happiest person.</p>
+        <button onclick="location.reload()" class="mt-12 text-slate-400 hover:text-rose-500 text-xs tracking-widest uppercase border-b border-transparent hover:border-rose-300 transition-all">Replay Celebration</button>
+    </div>
+
+    <script>
+        // Music Manager
+        const musicManager = {
+            audio: document.getElementById('bg-music'),
+            currentSong: 0,
+            songs: [
+                'Akhiyaan Gulaab (Teri Baaton Mein Aisa Uljha Jiya) - 320Kbps-(Mr-Jat.in).mp3',
+                'Chaleya Jawan 320 Kbps.mp3'
+            ],
+            isPlaying: false,
+            
+            init() {
+                this.audio.volume = 0.45; // 45% volume for soft background level
+                this.audio.loop = true;
+                this.attachPlayerUI();
+            },
+            
+            attachPlayerUI() {
+                const playerUI = document.getElementById('music-player-ui');
+                playerUI.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (this.isPlaying) {
+                        this.pause();
+                    } else {
+                        this.play();
+                    }
+                });
+                
+                // Double-click to switch songs
+                playerUI.addEventListener('dblclick', (e) => {
+                    e.stopPropagation();
+                    this.switchSong();
+                });
+                
+                // Touch long press for mobile
+                let touchTimer;
+                playerUI.addEventListener('touchstart', () => {
+                    touchTimer = setTimeout(() => this.switchSong(), 500);
+                });
+                playerUI.addEventListener('touchend', () => clearTimeout(touchTimer));
+            },
+            
+            loadSong() {
+                this.audio.src = this.songs[this.currentSong];
+                this.audio.load();
+            },
+            
+            play() {
+                this.loadSong();
+                this.audio.play().catch(err => console.log('Audio play error:', err));
+                this.isPlaying = true;
+            },
+            
+            pause() {
+                this.audio.pause();
+                this.isPlaying = false;
+            },
+            
+            switchSong() {
+                if (!this.isPlaying) return; // Only switch if music is playing
+                this.currentSong = (this.currentSong + 1) % this.songs.length;
+                this.play();
+            }
+        };
+
+        // Entrance Logic
+        function enterSite() {
+            document.getElementById('entrance-screen').classList.add('curtain-up');
+            // Slight delay to allow curtain to move before calculating scrolls or heavy JS
+            setTimeout(() => {
+                musicManager.play(); // Start music after user interaction
+                startTimer();
+                createSparkles();
+            }, 800);
+        }
+
+        // Live Counter Logic
+        function startTimer() {
+            // Set date to 835 days ago
+            const startDate = new Date();
+            startDate.setDate(startDate.getDate() - 835);
+
+            function update() {
+                const now = new Date();
+                const diff = now - startDate;
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((diff / 1000 / 60) % 60);
+                const seconds = Math.floor((diff / 1000) % 60);
+
+                document.getElementById('days').innerText = days < 10 ? '0'+days : days;
+                document.getElementById('hours').innerText = hours < 10 ? '0'+hours : hours;
+                document.getElementById('minutes').innerText = minutes < 10 ? '0'+minutes : minutes;
+                document.getElementById('seconds').innerText = seconds < 10 ? '0'+seconds : seconds;
+            }
+            setInterval(update, 1000);
+            update();
+        }
+
+        // Runaway Button Logic
+        function dodge(btn) {
+            const max = 150;
+            const x = Math.random() * (max * 2) - max;
+            const y = Math.random() * (max * 2) - max;
+            btn.style.transform = `translate(${x}px, ${y}px)`;
+            btn.style.transition = 'transform 0.2s ease-out';
+        }
+
+        // Celebration Logic
+        function acceptLove() {
+            const screen = document.getElementById('celebration');
+            screen.classList.remove('hidden');
+            screen.classList.add('flex');
+            
+            // Confetti explosion
+            for(let i=0; i<50; i++) {
+                setTimeout(createConfetti, i*30);
+            }
+        }
+
+        function createConfetti() {
+            const colors = ['#f43f5e', '#fb7185', '#fda4af', '#e11d48'];
+            const conf = document.createElement('div');
+            conf.className = 'fixed z-[70] w-3 h-3 rounded-full';
+            conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            conf.style.left = Math.random() * 100 + 'vw';
+            conf.style.top = '-10px';
+            document.body.appendChild(conf);
+
+            const speed = Math.random() * 3 + 2;
+            const rotate = Math.random() * 360;
+            
+            conf.animate([
+                { transform: `translateY(0) rotate(0deg)`, opacity: 1 },
+                { transform: `translateY(100vh) rotate(${rotate}deg)`, opacity: 0 }
+            ], {
+                duration: speed * 1000,
+                easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+            }).onfinish = () => conf.remove();
+        }
+
+        function createSparkles() {
+            setInterval(() => {
+                const sparkle = document.createElement('div');
+                sparkle.innerHTML = '✨';
+                sparkle.className = 'fixed text-rose-300 text-xl pointer-events-none z-0';
+                sparkle.style.left = Math.random() * 100 + 'vw';
+                sparkle.style.top = Math.random() * 100 + 'vh';
+                sparkle.style.opacity = '0';
+                document.body.appendChild(sparkle);
+
+                sparkle.animate([
+                    { opacity: 0, transform: 'scale(0)' },
+                    { opacity: 0.8, transform: 'scale(1.2)' },
+                    { opacity: 0, transform: 'scale(0)' }
+                ], {
+                    duration: 1500,
+                    easing: 'ease-in-out'
+                }).onfinish = () => sparkle.remove();
+            }, 800);
+        }
+
+        // Scroll Reveal Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Time-Based Surprise Logic
+        function updateTimeBasedMessage() {
+            const hour = new Date().getHours();
+            const messageElement = document.getElementById('time-message');
+            const iconElement = document.getElementById('time-icon');
+            
+            if (hour >= 5 && hour < 12) {
+                // Morning (5 AM to 12 PM)
+                messageElement.textContent = 'Good Morning meri sabse pyaari aadat ☀️';
+                iconElement.textContent = '☀️';
+            } else if (hour >= 12 && hour < 17) {
+                // Afternoon (12 PM to 5 PM)
+                messageElement.textContent = 'Happy Afternoon! Tum meri duniya ho 🌤️';
+                iconElement.textContent = '🌤️';
+            } else if (hour >= 17 && hour < 21) {
+                // Evening (5 PM to 9 PM)
+                messageElement.textContent = 'Beautiful Evening, tum ho toh sab kuch perfect hai 🌅';
+                iconElement.textContent = '🌅';
+            } else {
+                // Night (9 PM to 5 AM)
+                messageElement.textContent = 'Agar tum yahan ho, toh raat perfect hai 🌙';
+                iconElement.textContent = '🌙';
+            }
+        }
+        
+        // Update on page load
+        updateTimeBasedMessage();
+        
+        // Update every minute
+        setInterval(updateTimeBasedMessage, 60000);
+
+        // Initialize music manager on page load
+        musicManager.init();
+
+    </script>
+</body>
+</html>
