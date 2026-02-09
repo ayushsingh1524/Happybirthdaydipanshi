@@ -24,14 +24,15 @@
         /* Glassmorphism */
         .glass {
             background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.8);
             box-shadow: 0 8px 32px 0 rgba(244, 63, 94, 0.1);
         }
         
         .glass-card {
             background: rgba(255, 255, 255, 0.5);
+            -webkit-backdrop-filter: blur(16px);
             backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.7);
             box-shadow: 
@@ -76,7 +77,7 @@
 <body class="romantic-bg text-slate-800 antialiased overflow-x-hidden relative selection:bg-rose-200 selection:text-rose-900">
 
     <!-- Hidden Audio Player -->
-    <audio id="bg-music" loop style="display: none;"></audio>
+    <audio id="bg-music" loop class="hidden"></audio>
 
     <!-- Music Player UI (Visual Only) -->
     <div id="music-player-ui" class="fixed top-6 right-6 z-40 animate-float cursor-pointer">
