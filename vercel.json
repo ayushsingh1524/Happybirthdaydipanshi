@@ -1,14 +1,26 @@
 {
-  "buildCommand": "echo 'Build completed'",
-  "outputDirectory": ".",
+  "version": 2,
   "public": false,
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "index.html"
+    }
+  ],
+  "env": {},
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/public/(.*)",
       "headers": [
         {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
+          "key": "cache-control",
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     }
