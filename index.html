@@ -260,11 +260,11 @@
                 </div>
 
                 <!-- Photo 2 (Center) -->
-                <div class="group relative z-10 transform md:scale-110 hover:scale-115 transition-all duration-500 ease-out">
+                <div class="group relative z-10 transform md:scale-110 hover:scale-115 transition-all duration-500 ease-out cursor-pointer" id="my-world-container">
                     <div class="bg-white p-3 pb-12 shadow-2xl rounded-sm">
                         <div class="overflow-hidden aspect-[4/5] bg-rose-50 relative">
                             <div class="absolute inset-0 bg-rose-500/10 z-10 mix-blend-overlay"></div>
-                            <img src="20250415_142812.jpg" class="w-full h-full object-cover" alt="Memory">
+                            <img id="my-world-image" src="WhatsApp Image 2026-02-10 at 14.34.24.jpeg" class="w-full h-full object-cover" alt="Memory">
                         </div>
                         <div class="absolute bottom-4 left-0 w-full text-center flex justify-center items-center gap-2">
                             <iconify-icon icon="solar:heart-bold" class="text-rose-500"></iconify-icon>
@@ -274,10 +274,10 @@
                 </div>
 
                 <!-- Photo 3 -->
-                <div class="group relative transform rotate-[3deg] hover:rotate-0 hover:z-20 transition-all duration-500 ease-out md:top-8">
+                <div class="group relative transform rotate-[3deg] hover:rotate-0 hover:z-20 transition-all duration-500 ease-out md:top-8 cursor-pointer" id="pretty-you-container">
                     <div class="bg-white p-3 pb-12 shadow-xl rounded-sm">
                         <div class="overflow-hidden aspect-[4/5] bg-rose-50">
-                            <img src="Snapchat-602972927.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Memory">
+                            <img id="pretty-you-image" src="WhatsApp Image 2026-02-10 at 14.37.17.jpeg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Memory">
                         </div>
                         <div class="absolute bottom-4 left-0 w-full text-center">
                             <span class="font-script text-2xl text-slate-600">Pretty You</span>
@@ -583,26 +583,68 @@
         // Initialize music manager on page load
         musicManager.init();
 
-        // Image Toggle Functionality
+        // Image Toggle Functionality - Pure Joy
         const toggleImageContainer = document.getElementById('toggle-image-container');
         const toggleImage = document.getElementById('toggle-image');
-        const images = [
+        const pureJoyImages = [
             'WhatsApp Image 2026-02-10 at 14.26.26.jpeg',
             'Snapchat-2142451649.jpg'
         ];
-        let currentImageIndex = 0;
+        let pureJoyImageIndex = 0;
 
-        toggleImageContainer.addEventListener('click', function() {
-            currentImageIndex = (currentImageIndex + 1) % images.length;
+        toggleImageContainer.addEventListener('mouseenter', function() {
+            pureJoyImageIndex = (pureJoyImageIndex + 1) % pureJoyImages.length;
             toggleImage.style.opacity = '0.5';
             setTimeout(() => {
-                toggleImage.src = images[currentImageIndex];
+                toggleImage.src = pureJoyImages[pureJoyImageIndex];
                 toggleImage.style.opacity = '1';
             }, 150);
         });
 
         // Smooth opacity transition
         toggleImage.style.transition = 'opacity 0.3s ease-in-out';
+
+        // Image Toggle Functionality - My World
+        const myWorldContainer = document.getElementById('my-world-container');
+        const myWorldImage = document.getElementById('my-world-image');
+        const myWorldImages = [
+            'WhatsApp Image 2026-02-10 at 14.34.24.jpeg',
+            '20250415_142812.jpg'
+        ];
+        let myWorldImageIndex = 0;
+
+        myWorldContainer.addEventListener('mouseenter', function() {
+            myWorldImageIndex = (myWorldImageIndex + 1) % myWorldImages.length;
+            myWorldImage.style.opacity = '0.5';
+            setTimeout(() => {
+                myWorldImage.src = myWorldImages[myWorldImageIndex];
+                myWorldImage.style.opacity = '1';
+            }, 150);
+        });
+
+        // Smooth opacity transition
+        myWorldImage.style.transition = 'opacity 0.3s ease-in-out';
+
+        // Image Toggle Functionality - Pretty You
+        const prettyYouContainer = document.getElementById('pretty-you-container');
+        const prettyYouImage = document.getElementById('pretty-you-image');
+        const prettyYouImages = [
+            'WhatsApp Image 2026-02-10 at 14.37.17.jpeg',
+            'Snapchat-602972927.jpg'
+        ];
+        let prettyYouImageIndex = 0;
+
+        prettyYouContainer.addEventListener('mouseenter', function() {
+            prettyYouImageIndex = (prettyYouImageIndex + 1) % prettyYouImages.length;
+            prettyYouImage.style.opacity = '0.5';
+            setTimeout(() => {
+                prettyYouImage.src = prettyYouImages[prettyYouImageIndex];
+                prettyYouImage.style.opacity = '1';
+            }, 150);
+        });
+
+        // Smooth opacity transition
+        prettyYouImage.style.transition = 'opacity 0.3s ease-in-out';
 
     </script>
 </body>
