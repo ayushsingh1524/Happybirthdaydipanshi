@@ -122,8 +122,7 @@
         <section class="min-h-screen flex flex-col items-center justify-center text-center px-4 relative pt-20">
             <div class="space-y-4 reveal active">
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-rose-200 bg-white/40 backdrop-blur-sm text-rose-500 text-xs font-semibold tracking-widest uppercase shadow-sm">
-                    <iconify-icon icon="solar:calendar-date-bold"></iconify-icon> Special Edition For My Queen.
-
+                    <iconify-icon icon="solar:calendar-date-bold"></iconify-icon> Special Edition 
                 </div>
                 
                 <h1 class="text-7xl md:text-[9rem] font-script text-transparent bg-clip-text bg-gradient-to-br from-rose-400 via-pink-500 to-rose-600 leading-tight py-4 drop-shadow-sm">
@@ -249,10 +248,10 @@
             <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">
                 
                 <!-- Photo 1 -->
-                <div class="group relative transform rotate-[-3deg] hover:rotate-0 hover:z-20 transition-all duration-500 ease-out md:top-8">
+                <div class="group relative transform rotate-[-3deg] hover:rotate-0 hover:z-20 transition-all duration-500 ease-out md:top-8 cursor-pointer" id="toggle-image-container">
                     <div class="bg-white p-3 pb-12 shadow-xl rounded-sm">
                         <div class="overflow-hidden aspect-[4/5] bg-rose-50">
-                            <img src="Snapchat-2142451649.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Memory">
+                            <img id="toggle-image" src="WhatsApp Image 2026-02-10 at 14.26.26.jpeg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Memory">
                         </div>
                         <div class="absolute bottom-4 left-0 w-full text-center">
                             <span class="font-script text-2xl text-slate-600">Pure Joy</span>
@@ -583,6 +582,27 @@
 
         // Initialize music manager on page load
         musicManager.init();
+
+        // Image Toggle Functionality
+        const toggleImageContainer = document.getElementById('toggle-image-container');
+        const toggleImage = document.getElementById('toggle-image');
+        const images = [
+            'WhatsApp Image 2026-02-10 at 14.26.26.jpeg',
+            'Snapchat-2142451649.jpg'
+        ];
+        let currentImageIndex = 0;
+
+        toggleImageContainer.addEventListener('click', function() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            toggleImage.style.opacity = '0.5';
+            setTimeout(() => {
+                toggleImage.src = images[currentImageIndex];
+                toggleImage.style.opacity = '1';
+            }, 150);
+        });
+
+        // Smooth opacity transition
+        toggleImage.style.transition = 'opacity 0.3s ease-in-out';
 
     </script>
 </body>
